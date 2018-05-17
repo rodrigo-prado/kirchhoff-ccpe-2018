@@ -1,0 +1,11 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+
+Begin optimization report for: migkt2d(float **, int, int, float, float, float, int, float, float, float *, int, int, int, int, float, float **, float **, int, int)
+
+    Report from: OpenMP optimizations [openmp]
+
+suktmig2d_MPI+OpenMP_Manual.c(1015:1-1015:1):OMP:migkt2d:  OpenMP DEFINED REGION WAS PARALLELIZED
+===========================================================================

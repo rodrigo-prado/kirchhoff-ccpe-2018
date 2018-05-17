@@ -1,2 +1,2 @@
-# kirchhoff-ccpe-2018
-Source code
+# kirchhoff
+Kirchhoff algorithm for Pre-stack Kirchhoff Time Migration.

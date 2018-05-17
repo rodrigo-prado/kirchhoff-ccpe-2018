@@ -1,0 +1,404 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+
+Begin optimization report for: main(int, char **)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at suktmig2d_Sequential_Manual.c(215,2)
+   remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+LOOP END
+
+LOOP BEGIN at suktmig2d_Sequential_Manual.c(215,2)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at suktmig2d_Sequential_Manual.c(233,3)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at suktmig2d_Sequential_Manual.c(330,3)
+   remark #15382: vectorization support: call to function efread(void *, size_t, size_t, FILE *) cannot be vectorized   [ suktmig2d_Sequential_Manual.c(331,4) ]
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+LOOP END
+
+LOOP BEGIN at suktmig2d_Sequential_Manual.c(342,3)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at suktmig2d_Sequential_Manual.c(344,4)
+   <Multiversioned v1>
+      remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+   LOOP END
+
+   LOOP BEGIN at suktmig2d_Sequential_Manual.c(344,4)
+   <Remainder, Multiversioned v1>
+   LOOP END
+
+   LOOP BEGIN at suktmig2d_Sequential_Manual.c(344,4)
+   <Multiversioned v2>
+      remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+   LOOP END
+
+   LOOP BEGIN at suktmig2d_Sequential_Manual.c(344,4)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at suktmig2d_Sequential_Manual.c(228,2)
+   remark #15533: loop was not vectorized: loop exceeds complexity limits. Consider overriding limits (-override-limits) or using simd directive.
+LOOP END
+===========================================================================
+
+Begin optimization report for: migkt2d(float **, int, int, float, float, float, int, float, float, float *, int, int, int, int, float, float **, float **, int, int)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at suktmig2d_Sequential_Manual.c(497,2)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at suktmig2d_Sequential_Manual.c(507,3)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      remark #15346: vector dependence: assumed ANTI dependence between data line 511 and rtin line 511
+      remark #15346: vector dependence: assumed FLOW dependence between rtin line 511 and data line 511
+   LOOP END
+
+   LOOP BEGIN at suktmig2d_Sequential_Manual.c(507,3)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at suktmig2d_Sequential_Manual.c(514,3)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      remark #15346: vector dependence: assumed FLOW dependence between rtin line 515 and data line 515
+      remark #15346: vector dependence: assumed ANTI dependence between data line 515 and rtin line 515
+   LOOP END
+
+   LOOP BEGIN at suktmig2d_Sequential_Manual.c(514,3)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at suktmig2d_Sequential_Manual.c(524,3)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at suktmig2d_Sequential_Manual.c(1211,2) inlined into suktmig2d_Sequential_Manual.c(528,4)
+         remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_Sequential_Manual.c(1213,2) inlined into suktmig2d_Sequential_Manual.c(528,4)
+         remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_Sequential_Manual.c(1235,2) inlined into suktmig2d_Sequential_Manual.c(528,4)
+         remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_Sequential_Manual.c(1245,2) inlined into suktmig2d_Sequential_Manual.c(528,4)
+         remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_Sequential_Manual.c(1253,2) inlined into suktmig2d_Sequential_Manual.c(528,4)
+         remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_Sequential_Manual.c(1253,2) inlined into suktmig2d_Sequential_Manual.c(528,4)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_Sequential_Manual.c(1259,2) inlined into suktmig2d_Sequential_Manual.c(528,4)
+         remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+         LOOP BEGIN at suktmig2d_Sequential_Manual.c(1263,3) inlined into suktmig2d_Sequential_Manual.c(528,4)
+            remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_Sequential_Manual.c(1270,3) inlined into suktmig2d_Sequential_Manual.c(528,4)
+            remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_Sequential_Manual.c(1273,3) inlined into suktmig2d_Sequential_Manual.c(528,4)
+            remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_Sequential_Manual.c(531,4)
+         remark #15382: vectorization support: call to function crmul(complex, float) cannot be vectorized   [ suktmig2d_Sequential_Manual.c(533,28) ]
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_Sequential_Manual.c(537,4)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization
+         remark #15346: vector dependence: assumed FLOW dependence between lowpass line 541 and rtout line 541
+         remark #15346: vector dependence: assumed ANTI dependence between rtout line 541 and lowpass line 541
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_Sequential_Manual.c(537,4)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_Sequential_Manual.c(544,4)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization
+         remark #15346: vector dependence: assumed FLOW dependence between lowpass line 546 and rtout line 546
+         remark #15346: vector dependence: assumed ANTI dependence between rtout line 546 and lowpass line 546
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_Sequential_Manual.c(544,4)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_Sequential_Manual.c(1211,2) inlined into suktmig2d_Sequential_Manual.c(528,4)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_Sequential_Manual.c(1213,2) inlined into suktmig2d_Sequential_Manual.c(528,4)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at suktmig2d_Sequential_Manual.c(556,3)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at suktmig2d_Sequential_Manual.c(583,4)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization
+         remark #15346: vector dependence: assumed OUTPUT dependence between ts_vec line 595 and pmin_vec line 640
+         remark #15346: vector dependence: assumed OUTPUT dependence between pmin_vec line 640 and ts_vec line 595
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_Sequential_Manual.c(690,4)
+      <Peeled, Distributed chunk1>
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization
+         remark #15346: vector dependence: assumed FLOW dependence between .2 line 0 and .2 line 702
+         remark #15346: vector dependence: assumed ANTI dependence between .2 line 702 and .2 line 0
+
+         LOOP BEGIN at suktmig2d_Sequential_Manual.c(690,4)
+         <Peeled, Distributed chunk1>
+            remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_Sequential_Manual.c(690,4)
+         <Peeled, Distributed chunk2>
+            remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_Sequential_Manual.c(690,4)
+         <Peeled, Distributed chunk3>
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization
+            remark #15346: vector dependence: assumed FLOW dependence between t_vec line 696 and pmin_vec line 712
+            remark #15346: vector dependence: assumed ANTI dependence between pmin_vec line 712 and t_vec line 696
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_Sequential_Manual.c(715,4)
+         remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_Sequential_Manual.c(722,4)
+         remark #15382: vectorization support: call to function cos_ps(v8sf) cannot be vectorized   [ suktmig2d_Sequential_Manual.c(735,25) ]
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_Sequential_Manual.c(745,4)
+         remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_Sequential_Manual.c(755,4)
+         remark #15520: loop was not vectorized: loop with multiple exits cannot be vectorized unless it meets search loop idiom criteria
+
+         LOOP BEGIN at suktmig2d_Sequential_Manual.c(807,7)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization
+            remark #15346: vector dependence: assumed FLOW dependence between datalo line 808 and lowpass line 808
+            remark #15346: vector dependence: assumed ANTI dependence between lowpass line 808 and datalo line 808
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_Sequential_Manual.c(807,7)
+         <Remainder>
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_Sequential_Manual.c(833,7)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization
+            remark #15346: vector dependence: assumed FLOW dependence between datalo line 835 and lowpass line 836
+            remark #15346: vector dependence: assumed ANTI dependence between lowpass line 836 and datalo line 835
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_Sequential_Manual.c(833,7)
+         <Remainder>
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_Sequential_Manual.c(849,4)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization
+         remark #15346: vector dependence: assumed OUTPUT dependence between ts_vec line 860 and pmin_vec line 904
+         remark #15346: vector dependence: assumed OUTPUT dependence between pmin_vec line 904 and ts_vec line 860
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_Sequential_Manual.c(952,4)
+      <Peeled, Distributed chunk1>
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization
+         remark #15346: vector dependence: assumed FLOW dependence between .2 line 0 and .2 line 964
+         remark #15346: vector dependence: assumed ANTI dependence between .2 line 964 and .2 line 0
+
+         LOOP BEGIN at suktmig2d_Sequential_Manual.c(952,4)
+         <Peeled, Distributed chunk1>
+            remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_Sequential_Manual.c(952,4)
+         <Peeled, Distributed chunk2>
+            remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_Sequential_Manual.c(952,4)
+         <Peeled, Distributed chunk3>
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization
+            remark #15346: vector dependence: assumed FLOW dependence between t_vec line 958 and pmin_vec line 974
+            remark #15346: vector dependence: assumed ANTI dependence between pmin_vec line 974 and t_vec line 958
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_Sequential_Manual.c(977,4)
+         remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_Sequential_Manual.c(992,4)
+         remark #15382: vectorization support: call to function cos_ps(v8sf) cannot be vectorized   [ suktmig2d_Sequential_Manual.c(1004,24) ]
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_Sequential_Manual.c(1014,4)
+         remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_Sequential_Manual.c(1025,4)
+         remark #15520: loop was not vectorized: loop with multiple exits cannot be vectorized unless it meets search loop idiom criteria
+
+         LOOP BEGIN at suktmig2d_Sequential_Manual.c(1077,7)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization
+            remark #15346: vector dependence: assumed FLOW dependence between datalo line 1079 and lowpass line 1079
+            remark #15346: vector dependence: assumed ANTI dependence between lowpass line 1079 and datalo line 1079
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_Sequential_Manual.c(1077,7)
+         <Remainder>
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_Sequential_Manual.c(1104,7)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization
+            remark #15346: vector dependence: assumed FLOW dependence between datalo line 1106 and lowpass line 1107
+            remark #15346: vector dependence: assumed ANTI dependence between lowpass line 1107 and datalo line 1106
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_Sequential_Manual.c(1104,7)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: lpfilt(int, int, float, float, float *)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at suktmig2d_Sequential_Manual.c(1155,2)
+<Distributed chunk1>
+   remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+LOOP END
+
+LOOP BEGIN at suktmig2d_Sequential_Manual.c(1155,2)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at suktmig2d_Sequential_Manual.c(1155,2)
+<Distributed chunk2>
+   remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+
+   LOOP BEGIN at suktmig2d_Sequential_Manual.c(1160,3)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      remark #15346: vector dependence: assumed FLOW dependence between filter line 1163 and filter line 1163
+      remark #15346: vector dependence: assumed ANTI dependence between filter line 1163 and filter line 1163
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: lpfilt_vec(int, int, float, float, float *)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at suktmig2d_Sequential_Manual.c(1211,2)
+   remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+LOOP END
+
+LOOP BEGIN at suktmig2d_Sequential_Manual.c(1211,2)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at suktmig2d_Sequential_Manual.c(1213,2)
+   remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+LOOP END
+
+LOOP BEGIN at suktmig2d_Sequential_Manual.c(1213,2)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at suktmig2d_Sequential_Manual.c(1235,2)
+   remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+LOOP END
+
+LOOP BEGIN at suktmig2d_Sequential_Manual.c(1245,2)
+   remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+LOOP END
+
+LOOP BEGIN at suktmig2d_Sequential_Manual.c(1253,2)
+   remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+LOOP END
+
+LOOP BEGIN at suktmig2d_Sequential_Manual.c(1253,2)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at suktmig2d_Sequential_Manual.c(1259,2)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at suktmig2d_Sequential_Manual.c(1263,3)
+      remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+   LOOP END
+
+   LOOP BEGIN at suktmig2d_Sequential_Manual.c(1270,3)
+      remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+   LOOP END
+
+   LOOP BEGIN at suktmig2d_Sequential_Manual.c(1273,3)
+      remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: gravar_dados(float **, int, int, int, char *)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at suktmig2d_Sequential_Manual.c(1283,2)
+   remark #15382: vectorization support: call to function fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ suktmig2d_Sequential_Manual.c(1285,3) ]
+   remark #15382: vectorization support: call to function fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ suktmig2d_Sequential_Manual.c(1287,4) ]
+   remark #15382: vectorization support: call to function fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ suktmig2d_Sequential_Manual.c(1289,3) ]
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+   remark #15346: vector dependence: assumed OUTPUT dependence between call:fprintf(FILE *__restrict__, line 1285 and call:fprintf(FILE *__restrict__, line 1289
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1289 and  line 1285
+
+   LOOP BEGIN at suktmig2d_Sequential_Manual.c(1286,3)
+      remark #15382: vectorization support: call to function fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ suktmig2d_Sequential_Manual.c(1287,4) ]
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      remark #15346: vector dependence: assumed FLOW dependence between call:fprintf(FILE *__restrict__, line 1287 and mig line 1287
+      remark #15346: vector dependence: assumed ANTI dependence between mig line 1287 and call:fprintf(FILE *__restrict__, line 1287
+   LOOP END
+LOOP END
+===========================================================================

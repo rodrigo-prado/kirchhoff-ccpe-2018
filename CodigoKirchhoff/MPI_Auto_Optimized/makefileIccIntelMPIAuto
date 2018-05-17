@@ -1,0 +1,34 @@
+# Makefile for ...suktmig2d_MPI
+
+include $(CWPROOT)/src/Makefile.config
+
+D = $L/libcwp.a $L/libpar.a $L/libsu.a
+
+B=.
+
+OPTC = -g
+
+LFLAGS= -O3 $(PRELFLAGS)  \
+-I/home/rprado/intel/compilers_and_libraries_2017.2.174/linux/mpi/intel64/include -L/home/rprado/intel/compilers_and_libraries_2017.2.174/linux/mpi/intel64/lib/release_mt -L/home/rprado/intel/compilers_and_libraries_2017.2.174/linux/mpi/intel64/lib -Xlinker --enable-new-dtags -Xlinker -rpath -Xlinker /home/rprado/intel/compilers_and_libraries_2017.2.174/linux/mpi/intel64/lib/release_mt -Xlinker -rpath -Xlinker /home/rprado/intel/compilers_and_libraries_2017.2.174/linux/mpi/intel64/lib -Xlinker -rpath -Xlinker /opt/intel/mpi-rt/2017.0.0/intel64/lib/release_mt -Xlinker -rpath -Xlinker /opt/intel/mpi-rt/2017.0.0/intel64/lib -lmpifort -lmpi -lmpigi -ldl -lrt -lpthread \
+-lhwloc -L$L -lsu -lpar -lcwp -lm -lrt -xcore-avx2 -qopt-report:5 -qopt-report-phase=vec -prec-div -no-fma $(POSTLFLAGS)
+
+CC = icc
+
+PROGS =			\
+	$B/suktmig2d_MPI
+
+INSTALL_IccIntelMPIAuto	:	$(PROGS)
+	@-rm -f INSTALL*
+	@touch $@
+
+$(PROGS):	$(CTARGET) $D
+	-$(CC) $(CFLAGS) $(@F).c $(LFLAGS) -o $@
+	@$(MCHMODLINE)
+	@echo $(@F) installed in $B
+
+remake	:
+	-rm -f $(PROGS) INSTALL_IccIntelMPIAuto
+	$(MAKE) -f makefileIccIntelMPIAuto
+
+clean::
+	rm -f a.out junk* JUNK* core *.o

@@ -1,0 +1,34 @@
+# Makefile for ...suktmig2d_MPI
+
+include $(CWPROOT)/src/Makefile.config
+
+D = $L/libcwp.a $L/libpar.a $L/libsu.a
+
+B=.
+
+OPTC = -g
+
+LFLAGS= -O3 $(PRELFLAGS) -I/usr/lib/openmpi/include -I/usr/lib/openmpi/include/openmpi -pthread \
+-L/usr//lib -L/usr/lib/openmpi/lib -lmpi -ldl -lhwloc \
+-L$L -lsu -lpar -lcwp -lm -mavx2 $(POSTLFLAGS)
+
+CC = gcc
+
+PROGS =			\
+	$B/suktmig2d_MPI
+
+INSTALL_GccOpenMPIAuto	:	$(PROGS)
+	@-rm -f INSTALL*
+	@touch $@
+
+$(PROGS):	$(CTARGET) $D
+	-$(CC) $(CFLAGS) $(@F).c $(LFLAGS) -o $@
+	@$(MCHMODLINE)
+	@echo $(@F) installed in $B
+
+remake	:
+	-rm -f $(PROGS) INSTALL_GccOpenMPIAuto
+	$(MAKE) -f makefileGccOpenMPIAuto
+
+clean::
+	rm -f a.out junk* JUNK* core *.o

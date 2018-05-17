@@ -1,0 +1,35 @@
+# Makefile for ...suktmig2d_MPI
+
+include $(CWPROOT)/src/Makefile.config
+
+D = $L/libcwp.a $L/libpar.a $L/libsu.a
+
+B=.
+
+OPTC = -g
+
+LFLAGS= -O3 $(PRELFLAGS) -I/usr/lib/openmpi/include -I/usr/lib/openmpi/include/openmpi -pthread \
+-L/usr//lib -L/usr/lib/openmpi/lib -lmpi -ldl -lhwloc -restrict \
+-L$L -lsu -lpar -lcwp -lm -xcore-avx2 -prec-div -no-fma -qopt-report:5 -qopt-report-phase=vec $(POSTLFLAGS)
+
+CC = icc
+
+PROGS =			\
+	$B/suktmig2d_MPI
+
+INSTALL_ICC_OpenMPI_Auto_Optimized	:	$(PROGS)
+	@-rm -f INSTALL_ICC_OpenMPI_Auto_Optimized
+	@touch $@
+
+$(PROGS):	$(CTARGET) $D
+	-$(CC) $(CFLAGS) $(@F).c $(LFLAGS) -o $@
+	@$(MCHMODLINE)
+	-mv $@ $@_Auto_Optimized
+	@echo $(@F) installed in $B
+
+remake	:
+	-rm -f $(PROGS) INSTALL
+	$(MAKE) -f makefile_ICC_OpenMPI_Auto_Optimized
+
+clean::
+	rm -f a.out junk* JUNK* core *.o

@@ -1,0 +1,18 @@
+NFC=8, FWIDTH=5
+mpi-auto-optimized, 34.984, 0.149345237621
+mpi-auto-optimized, 24.353, 0.022825424421
+mpi-auto-optimized, 18.587, 0.685653702681
+mpi-auto-optimized, 15.285, 0.536288168805
+mpi-auto-optimized, 14.233, 0.182485615871
+NFC=16, FWIDTH=3
+mpi-auto-optimized, 40.397, 0.201347957526
+mpi-auto-optimized, 28.076, 0.0626418390535
+mpi-auto-optimized, 21.714, 0.871219834485
+mpi-auto-optimized, 17.628, 0.574939996869
+mpi-auto-optimized, 16.476, 0.331728804899
+NFC=32, FWIDTH=1
+mpi-auto-optimized, 76.41, 0.227683991532
+mpi-auto-optimized, 52.68, 0.0859069263797
+mpi-auto-optimized, 39.381, 0.446619524875
+mpi-auto-optimized, 32.86, 1.03405028891
+mpi-auto-optimized, 31.127, 0.944066205306

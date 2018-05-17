@@ -1,0 +1,744 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 18.0.1.163 Build 20171018
+
+Compiler options: -I/home/rprado/cwp/include -I/usr/lib/openmpi/include -I/usr/lib/openmpi/include/openmpi -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -DCWP_LITTLE_ENDIAN -DSUXDR -D_BSD_SOURCE -D_POSIX_SOURCE -O3 -pthread -L/usr//lib -L/usr/lib/openmpi/lib -lmpi -ldl -lhwloc -restrict -L/home/rprado/cwp/lib -lsu -lpar -lcwp -lm -xcore-avx2 -prec-div -no-fma -qopt-report:5 -qopt-report-phase=vec -o suktmig2d_MPI
+
+Begin optimization report for: main(int, char **)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at suktmig2d_MPI.c(555,3)
+   remark #15382: vectorization support: call to function MPI_Send(void *, int, MPI_Datatype, int, int, MPI_Comm) cannot be vectorized   [ suktmig2d_MPI.c(556,4) ]
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+LOOP END
+
+LOOP BEGIN at suktmig2d_MPI.c(152,2) inlined into suktmig2d_MPI.c(559,3)
+<Peeled loop for vectorization>
+LOOP END
+
+LOOP BEGIN at suktmig2d_MPI.c(152,2) inlined into suktmig2d_MPI.c(559,3)
+   remark #15389: vectorization support: reference fc[i] has unaligned access   [ suktmig2d_MPI.c(153,5) ]
+   remark #15381: vectorization support: unaligned access used inside loop body
+   remark #15305: vectorization support: vector length 8
+   remark #15399: vectorization support: unroll factor set to 2
+   remark #15309: vectorization support: normalized vectorization overhead 0.171
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15442: entire loop may be executed in remainder
+   remark #15451: unmasked unaligned unit stride stores: 1 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 34 
+   remark #15477: vector cost: 4.750 
+   remark #15478: estimated potential speedup: 5.700 
+   remark #15486: divides: 1 
+   remark #15487: type converts: 1 
+   remark #15488: --- end vector cost summary ---
+LOOP END
+
+LOOP BEGIN at suktmig2d_MPI.c(152,2) inlined into suktmig2d_MPI.c(559,3)
+<Remainder loop for vectorization>
+   remark #15389: vectorization support: reference fc[i] has unaligned access   [ suktmig2d_MPI.c(153,5) ]
+   remark #15381: vectorization support: unaligned access used inside loop body
+   remark #15305: vectorization support: vector length 4
+   remark #15309: vectorization support: normalized vectorization overhead 0.390
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at suktmig2d_MPI.c(152,2) inlined into suktmig2d_MPI.c(559,3)
+<Remainder loop for vectorization>
+LOOP END
+
+LOOP BEGIN at suktmig2d_MPI.c(578,3)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at suktmig2d_MPI.c(678,5)
+      remark #15382: vectorization support: call to function efread(void *, size_t, size_t, FILE *) cannot be vectorized   [ suktmig2d_MPI.c(680,6) ]
+      remark #15382: vectorization support: call to function ?1memcpy cannot be vectorized   [ suktmig2d_MPI.c(681,6) ]
+      remark #15382: vectorization support: call to function fputtr(FILE *, segy *) cannot be vectorized   [ suktmig2d_MPI.c(685,6) ]
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization
+
+      LOOP BEGIN at suktmig2d_MPI.c(681,6)
+         remark #15398: loop was not vectorized: loop was transformed to memset or memcpy
+
+         LOOP BEGIN at suktmig2d_MPI.c(681,6)
+         <Multiversioned v2>
+            remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_MPI.c(681,6)
+         <Remainder, Multiversioned v2>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at suktmig2d_MPI.c(152,2) inlined into suktmig2d_MPI.c(808,3)
+<Peeled loop for vectorization>
+LOOP END
+
+LOOP BEGIN at suktmig2d_MPI.c(152,2) inlined into suktmig2d_MPI.c(808,3)
+   remark #15389: vectorization support: reference fc[i] has unaligned access   [ suktmig2d_MPI.c(153,5) ]
+   remark #15381: vectorization support: unaligned access used inside loop body
+   remark #15305: vectorization support: vector length 8
+   remark #15399: vectorization support: unroll factor set to 2
+   remark #15309: vectorization support: normalized vectorization overhead 0.171
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15442: entire loop may be executed in remainder
+   remark #15451: unmasked unaligned unit stride stores: 1 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 34 
+   remark #15477: vector cost: 4.750 
+   remark #15478: estimated potential speedup: 5.700 
+   remark #15486: divides: 1 
+   remark #15487: type converts: 1 
+   remark #15488: --- end vector cost summary ---
+LOOP END
+
+LOOP BEGIN at suktmig2d_MPI.c(152,2) inlined into suktmig2d_MPI.c(808,3)
+<Remainder loop for vectorization>
+   remark #15389: vectorization support: reference fc[i] has unaligned access   [ suktmig2d_MPI.c(153,5) ]
+   remark #15381: vectorization support: unaligned access used inside loop body
+   remark #15305: vectorization support: vector length 4
+   remark #15309: vectorization support: normalized vectorization overhead 0.390
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at suktmig2d_MPI.c(152,2) inlined into suktmig2d_MPI.c(808,3)
+<Remainder loop for vectorization>
+LOOP END
+
+LOOP BEGIN at suktmig2d_MPI.c(822,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at suktmig2d_MPI.c(995,2) inlined into suktmig2d_MPI.c(871,4)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at suktmig2d_MPI.c(1006,3) inlined into suktmig2d_MPI.c(871,4)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at suktmig2d_MPI.c(1006,3) inlined into suktmig2d_MPI.c(871,4)
+            remark #15389: vectorization support: reference rtin[it] has unaligned access   [ suktmig2d_MPI.c(1007,4) ]
+            remark #15389: vectorization support: reference *(*(data+(imp-1)*8)+(it-1)*4) has unaligned access   [ suktmig2d_MPI.c(1007,13) ]
+            remark #15381: vectorization support: unaligned access used inside loop body
+            remark #15305: vectorization support: vector length 8
+            remark #15309: vectorization support: normalized vectorization overhead 1.000
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15450: unmasked unaligned unit stride loads: 1 
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector cost summary ---
+            remark #15476: scalar cost: 5 
+            remark #15477: vector cost: 0.750 
+            remark #15478: estimated potential speedup: 5.000 
+            remark #15488: --- end vector cost summary ---
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_MPI.c(1006,3) inlined into suktmig2d_MPI.c(871,4)
+         <Remainder loop for vectorization>
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_MPI.c(1009,3) inlined into suktmig2d_MPI.c(871,4)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at suktmig2d_MPI.c(1185,2) inlined into suktmig2d_MPI.c(871,4)
+         <Peeled loop for vectorization, Distributed chunk1>
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_MPI.c(1185,2) inlined into suktmig2d_MPI.c(871,4)
+         <Distributed chunk1>
+            remark #15389: vectorization support: reference filter[i] has unaligned access   [ suktmig2d_MPI.c(1186,3) ]
+            remark #15381: vectorization support: unaligned access used inside loop body
+            remark #15305: vectorization support: vector length 4
+            remark #15399: vectorization support: unroll factor set to 2
+            remark #15309: vectorization support: normalized vectorization overhead 1.833
+            remark #15301: PARTIAL LOOP WAS VECTORIZED
+            remark #15442: entire loop may be executed in remainder
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector cost summary ---
+            remark #15476: scalar cost: 32 
+            remark #15477: vector cost: 0.750 
+            remark #15478: estimated potential speedup: 26.590 
+            remark #15488: --- end vector cost summary ---
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_MPI.c(1185,2) inlined into suktmig2d_MPI.c(871,4)
+         <Remainder loop for vectorization, Distributed chunk1>
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_MPI.c(1185,2) inlined into suktmig2d_MPI.c(871,4)
+         <Distributed chunk2>
+            remark #15389: vectorization support: reference filter[i] has unaligned access   [ suktmig2d_MPI.c(1191,4) ]
+            remark #15389: vectorization support: reference filter[i] has unaligned access   [ suktmig2d_MPI.c(1191,4) ]
+            remark #15381: vectorization support: unaligned access used inside loop body
+            remark #15305: vectorization support: vector length 4
+            remark #15309: vectorization support: normalized vectorization overhead 0.049
+            remark #15301: PARTIAL LOOP WAS VECTORIZED
+            remark #15450: unmasked unaligned unit stride loads: 1 
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector cost summary ---
+            remark #15476: scalar cost: 401 
+            remark #15477: vector cost: 86.750 
+            remark #15478: estimated potential speedup: 4.610 
+            remark #15482: vectorized math library calls: 1 
+            remark #15487: type converts: 4 
+            remark #15488: --- end vector cost summary ---
+
+            LOOP BEGIN at suktmig2d_MPI.c(1189,3) inlined into suktmig2d_MPI.c(871,4)
+               remark #15344: loop was not vectorized: vector dependence prevents vectorization
+               remark #15346: vector dependence: assumed FLOW dependence between filter[i] (1191:4) and filter[i] (1191:4)
+               remark #15346: vector dependence: assumed ANTI dependence between filter[i] (1191:4) and filter[i] (1191:4)
+               remark #15548: loop was vectorized along with the outer loop
+            LOOP END
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_MPI.c(1185,2) inlined into suktmig2d_MPI.c(871,4)
+         <Remainder loop for vectorization, Distributed chunk2>
+
+            LOOP BEGIN at suktmig2d_MPI.c(1189,3) inlined into suktmig2d_MPI.c(871,4)
+               remark #25460: No loop optimizations reported
+            LOOP END
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_MPI.c(1016,4) inlined into suktmig2d_MPI.c(871,4)
+            remark #15382: vectorization support: call to function crmul(complex, float) cannot be vectorized   [ suktmig2d_MPI.c(1017,27) ]
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_MPI.c(1020,4) inlined into suktmig2d_MPI.c(871,4)
+            remark #15542: loop was not vectorized: inner loop was already vectorized
+
+            LOOP BEGIN at suktmig2d_MPI.c(1020,4) inlined into suktmig2d_MPI.c(871,4)
+               remark #15389: vectorization support: reference *(*(lowpass+ifc*8)+(it-1)*4) has unaligned access   [ suktmig2d_MPI.c(1021,5) ]
+               remark #15389: vectorization support: reference rtout[it] has unaligned access   [ suktmig2d_MPI.c(1021,23) ]
+               remark #15381: vectorization support: unaligned access used inside loop body
+               remark #15305: vectorization support: vector length 8
+               remark #15309: vectorization support: normalized vectorization overhead 1.000
+               remark #15300: LOOP WAS VECTORIZED
+               remark #15450: unmasked unaligned unit stride loads: 1 
+               remark #15451: unmasked unaligned unit stride stores: 1 
+               remark #15475: --- begin vector cost summary ---
+               remark #15476: scalar cost: 5 
+               remark #15477: vector cost: 0.750 
+               remark #15478: estimated potential speedup: 5.000 
+               remark #15488: --- end vector cost summary ---
+            LOOP END
+
+            LOOP BEGIN at suktmig2d_MPI.c(1020,4) inlined into suktmig2d_MPI.c(871,4)
+            <Remainder loop for vectorization>
+            LOOP END
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_MPI.c(1026,3) inlined into suktmig2d_MPI.c(871,4)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at suktmig2d_MPI.c(1038,4) inlined into suktmig2d_MPI.c(871,4)
+            remark #15542: loop was not vectorized: inner loop was already vectorized
+
+            LOOP BEGIN at suktmig2d_MPI.c(1070,6) inlined into suktmig2d_MPI.c(871,4)
+               remark #15542: loop was not vectorized: inner loop was already vectorized
+
+               LOOP BEGIN at suktmig2d_MPI.c(1070,6) inlined into suktmig2d_MPI.c(871,4)
+                  remark #15389: vectorization support: reference datalo[k-?] has unaligned access   [ suktmig2d_MPI.c(1071,7) ]
+                  remark #15389: vectorization support: reference *(*(lowpass+nc*8)+(k+?-1)*4) has unaligned access   [ suktmig2d_MPI.c(1071,21) ]
+                  remark #15381: vectorization support: unaligned access used inside loop body
+                  remark #15305: vectorization support: vector length 8
+                  remark #15309: vectorization support: normalized vectorization overhead 1.000
+                  remark #15300: LOOP WAS VECTORIZED
+                  remark #15450: unmasked unaligned unit stride loads: 1 
+                  remark #15451: unmasked unaligned unit stride stores: 1 
+                  remark #15475: --- begin vector cost summary ---
+                  remark #15476: scalar cost: 4 
+                  remark #15477: vector cost: 0.750 
+                  remark #15478: estimated potential speedup: 4.000 
+                  remark #15488: --- end vector cost summary ---
+               LOOP END
+
+               LOOP BEGIN at suktmig2d_MPI.c(1070,6) inlined into suktmig2d_MPI.c(871,4)
+               <Remainder loop for vectorization>
+               LOOP END
+            LOOP END
+
+            LOOP BEGIN at suktmig2d_MPI.c(1076,6) inlined into suktmig2d_MPI.c(871,4)
+               remark #15389: vectorization support: reference datalo[k-?] has unaligned access   [ suktmig2d_MPI.c(1077,7) ]
+               remark #15389: vectorization support: reference *(*(lowpass+(fplo+1)*8)+(k+?-1)*4) has unaligned access   [ suktmig2d_MPI.c(1077,21) ]
+               remark #15389: vectorization support: reference datahi[k-?] has unaligned access   [ suktmig2d_MPI.c(1078,7) ]
+               remark #15389: vectorization support: reference *(*(lowpass+(fplo+1)*8)+(k+?-1)*4) has unaligned access   [ suktmig2d_MPI.c(1078,21) ]
+               remark #15381: vectorization support: unaligned access used inside loop body
+               remark #15305: vectorization support: vector length 8
+               remark #15309: vectorization support: normalized vectorization overhead 1.000
+               remark #15300: LOOP WAS VECTORIZED
+               remark #15450: unmasked unaligned unit stride loads: 2 
+               remark #15451: unmasked unaligned unit stride stores: 2 
+               remark #15475: --- begin vector cost summary ---
+               remark #15476: scalar cost: 8 
+               remark #15477: vector cost: 1.500 
+               remark #15478: estimated potential speedup: 2.660 
+               remark #15488: --- end vector cost summary ---
+            LOOP END
+
+            LOOP BEGIN at suktmig2d_MPI.c(1076,6) inlined into suktmig2d_MPI.c(871,4)
+            <Remainder loop for vectorization>
+            LOOP END
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_MPI.c(1088,4) inlined into suktmig2d_MPI.c(871,4)
+            remark #15542: loop was not vectorized: inner loop was already vectorized
+
+            LOOP BEGIN at suktmig2d_MPI.c(1130,6) inlined into suktmig2d_MPI.c(871,4)
+               remark #15542: loop was not vectorized: inner loop was already vectorized
+
+               LOOP BEGIN at suktmig2d_MPI.c(1130,6) inlined into suktmig2d_MPI.c(871,4)
+                  remark #15389: vectorization support: reference datalo[k-?] has unaligned access   [ suktmig2d_MPI.c(1131,7) ]
+                  remark #15389: vectorization support: reference *(*(lowpass+nc*8)+(k+?-1)*4) has unaligned access   [ suktmig2d_MPI.c(1131,21) ]
+                  remark #15381: vectorization support: unaligned access used inside loop body
+                  remark #15305: vectorization support: vector length 8
+                  remark #15309: vectorization support: normalized vectorization overhead 1.000
+                  remark #15300: LOOP WAS VECTORIZED
+                  remark #15450: unmasked unaligned unit stride loads: 1 
+                  remark #15451: unmasked unaligned unit stride stores: 1 
+                  remark #15475: --- begin vector cost summary ---
+                  remark #15476: scalar cost: 4 
+                  remark #15477: vector cost: 0.750 
+                  remark #15478: estimated potential speedup: 4.000 
+                  remark #15488: --- end vector cost summary ---
+               LOOP END
+
+               LOOP BEGIN at suktmig2d_MPI.c(1130,6) inlined into suktmig2d_MPI.c(871,4)
+               <Remainder loop for vectorization>
+               LOOP END
+            LOOP END
+
+            LOOP BEGIN at suktmig2d_MPI.c(1136,6) inlined into suktmig2d_MPI.c(871,4)
+               remark #15389: vectorization support: reference datalo[k-?] has unaligned access   [ suktmig2d_MPI.c(1137,7) ]
+               remark #15389: vectorization support: reference *(*(lowpass+fplo*8)+(k+?-1)*4) has unaligned access   [ suktmig2d_MPI.c(1137,21) ]
+               remark #15389: vectorization support: reference datahi[k-?] has unaligned access   [ suktmig2d_MPI.c(1138,7) ]
+               remark #15389: vectorization support: reference *(*(lowpass+(fplo+1)*8)+(k+?-1)*4) has unaligned access   [ suktmig2d_MPI.c(1138,21) ]
+               remark #15381: vectorization support: unaligned access used inside loop body
+               remark #15305: vectorization support: vector length 8
+               remark #15309: vectorization support: normalized vectorization overhead 1.000
+               remark #15300: LOOP WAS VECTORIZED
+               remark #15450: unmasked unaligned unit stride loads: 2 
+               remark #15451: unmasked unaligned unit stride stores: 2 
+               remark #15475: --- begin vector cost summary ---
+               remark #15476: scalar cost: 8 
+               remark #15477: vector cost: 1.500 
+               remark #15478: estimated potential speedup: 2.660 
+               remark #15488: --- end vector cost summary ---
+            LOOP END
+
+            LOOP BEGIN at suktmig2d_MPI.c(1136,6) inlined into suktmig2d_MPI.c(871,4)
+            <Remainder loop for vectorization>
+            LOOP END
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: read_offset(FILE *, int *, FILE **, int *, int, int, int *, int *, int, int *, float *, int *, int, int, int, float ***)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at suktmig2d_MPI.c(187,3)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form from OpenMP specification
+LOOP END
+
+LOOP BEGIN at suktmig2d_MPI.c(288,3)
+   remark #15523: loop was not vectorized: loop control variable ix was found, but loop iteration count cannot be computed before executing the loop
+LOOP END
+===========================================================================
+
+Begin optimization report for: gravar_velocidade(float **, int, int, int, char *)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at suktmig2d_MPI.c(110,2)
+   remark #15382: vectorization support: call to function fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ suktmig2d_MPI.c(112,3) ]
+   remark #15382: vectorization support: call to function fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ suktmig2d_MPI.c(114,4) ]
+   remark #15382: vectorization support: call to function fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ suktmig2d_MPI.c(116,3) ]
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+   remark #15346: vector dependence: assumed OUTPUT dependence between call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (112:3) and call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (116:3)
+   remark #15346: vector dependence: assumed OUTPUT dependence between call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (116:3) and call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (112:3)
+
+   LOOP BEGIN at suktmig2d_MPI.c(113,3)
+      remark #15382: vectorization support: call to function fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ suktmig2d_MPI.c(114,4) ]
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      remark #15346: vector dependence: assumed FLOW dependence between call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (114:4) and vel[ix] (114:4)
+      remark #15346: vector dependence: assumed ANTI dependence between vel[ix] (114:4) and call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (114:4)
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: get_parameters(segy *, int *, float *, float *, int *, int *, float *, int *, float ***, float **, int, int, int, char *)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at suktmig2d_MPI.c(152,2)
+<Peeled loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at suktmig2d_MPI.c(152,2)
+<Multiversioned v1>
+   remark #15389: vectorization support: reference fc has unaligned access   [ suktmig2d_MPI.c(153,5) ]
+   remark #15381: vectorization support: unaligned access used inside loop body
+   remark #15305: vectorization support: vector length 8
+   remark #15399: vectorization support: unroll factor set to 2
+   remark #15309: vectorization support: normalized vectorization overhead 0.171
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15442: entire loop may be executed in remainder
+   remark #15451: unmasked unaligned unit stride stores: 1 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 34 
+   remark #15477: vector cost: 4.750 
+   remark #15478: estimated potential speedup: 5.700 
+   remark #15486: divides: 1 
+   remark #15487: type converts: 1 
+   remark #15488: --- end vector cost summary ---
+LOOP END
+
+LOOP BEGIN at suktmig2d_MPI.c(152,2)
+<Remainder loop for vectorization, Multiversioned v1>
+   remark #15389: vectorization support: reference fc has unaligned access   [ suktmig2d_MPI.c(153,5) ]
+   remark #15381: vectorization support: unaligned access used inside loop body
+   remark #15305: vectorization support: vector length 4
+   remark #15309: vectorization support: normalized vectorization overhead 0.390
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at suktmig2d_MPI.c(152,2)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at suktmig2d_MPI.c(152,2)
+<Multiversioned v2>
+   remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+LOOP END
+
+LOOP BEGIN at suktmig2d_MPI.c(152,2)
+<Remainder, Multiversioned v2>
+LOOP END
+===========================================================================
+
+Begin optimization report for: migkt2d(float **, int, int, float, float, float, int, float, float, float *, int, int, int, int, float, float **, float **, int, int)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at suktmig2d_MPI.c(995,2)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at suktmig2d_MPI.c(1006,3)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at suktmig2d_MPI.c(1006,3)
+         remark #15389: vectorization support: reference rtin[it] has unaligned access   [ suktmig2d_MPI.c(1007,4) ]
+         remark #15389: vectorization support: reference *(*(data+(imp-1)*8)+(it-1)*4) has unaligned access   [ suktmig2d_MPI.c(1007,13) ]
+         remark #15381: vectorization support: unaligned access used inside loop body
+         remark #15305: vectorization support: vector length 8
+         remark #15309: vectorization support: normalized vectorization overhead 1.000
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15450: unmasked unaligned unit stride loads: 1 
+         remark #15451: unmasked unaligned unit stride stores: 1 
+         remark #15475: --- begin vector cost summary ---
+         remark #15476: scalar cost: 5 
+         remark #15477: vector cost: 0.750 
+         remark #15478: estimated potential speedup: 5.000 
+         remark #15488: --- end vector cost summary ---
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_MPI.c(1006,3)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at suktmig2d_MPI.c(1009,3)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at suktmig2d_MPI.c(1185,2) inlined into suktmig2d_MPI.c(1013,4)
+      <Peeled loop for vectorization, Distributed chunk1>
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_MPI.c(1185,2) inlined into suktmig2d_MPI.c(1013,4)
+      <Distributed chunk1>
+         remark #15389: vectorization support: reference filter[i] has unaligned access   [ suktmig2d_MPI.c(1186,3) ]
+         remark #15381: vectorization support: unaligned access used inside loop body
+         remark #15305: vectorization support: vector length 4
+         remark #15399: vectorization support: unroll factor set to 2
+         remark #15309: vectorization support: normalized vectorization overhead 1.833
+         remark #15301: PARTIAL LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15451: unmasked unaligned unit stride stores: 1 
+         remark #15475: --- begin vector cost summary ---
+         remark #15476: scalar cost: 32 
+         remark #15477: vector cost: 0.750 
+         remark #15478: estimated potential speedup: 26.590 
+         remark #15488: --- end vector cost summary ---
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_MPI.c(1185,2) inlined into suktmig2d_MPI.c(1013,4)
+      <Remainder loop for vectorization, Distributed chunk1>
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_MPI.c(1185,2) inlined into suktmig2d_MPI.c(1013,4)
+      <Distributed chunk2>
+         remark #15389: vectorization support: reference filter[i] has unaligned access   [ suktmig2d_MPI.c(1191,4) ]
+         remark #15389: vectorization support: reference filter[i] has unaligned access   [ suktmig2d_MPI.c(1191,4) ]
+         remark #15381: vectorization support: unaligned access used inside loop body
+         remark #15305: vectorization support: vector length 4
+         remark #15309: vectorization support: normalized vectorization overhead 0.049
+         remark #15301: PARTIAL LOOP WAS VECTORIZED
+         remark #15450: unmasked unaligned unit stride loads: 1 
+         remark #15451: unmasked unaligned unit stride stores: 1 
+         remark #15475: --- begin vector cost summary ---
+         remark #15476: scalar cost: 401 
+         remark #15477: vector cost: 86.750 
+         remark #15478: estimated potential speedup: 4.610 
+         remark #15482: vectorized math library calls: 1 
+         remark #15487: type converts: 4 
+         remark #15488: --- end vector cost summary ---
+
+         LOOP BEGIN at suktmig2d_MPI.c(1189,3) inlined into suktmig2d_MPI.c(1013,4)
+            remark #15344: loop was not vectorized: vector dependence prevents vectorization
+            remark #15346: vector dependence: assumed FLOW dependence between filter[i] (1191:4) and filter[i] (1191:4)
+            remark #15346: vector dependence: assumed ANTI dependence between filter[i] (1191:4) and filter[i] (1191:4)
+            remark #15548: loop was vectorized along with the outer loop
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_MPI.c(1185,2) inlined into suktmig2d_MPI.c(1013,4)
+      <Remainder loop for vectorization, Distributed chunk2>
+
+         LOOP BEGIN at suktmig2d_MPI.c(1189,3) inlined into suktmig2d_MPI.c(1013,4)
+            remark #25460: No loop optimizations reported
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_MPI.c(1016,4)
+         remark #15382: vectorization support: call to function crmul(complex, float) cannot be vectorized   [ suktmig2d_MPI.c(1017,27) ]
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_MPI.c(1020,4)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at suktmig2d_MPI.c(1020,4)
+            remark #15389: vectorization support: reference *(*(lowpass+ifc*8)+(it-1)*4) has unaligned access   [ suktmig2d_MPI.c(1021,5) ]
+            remark #15389: vectorization support: reference rtout[it] has unaligned access   [ suktmig2d_MPI.c(1021,23) ]
+            remark #15381: vectorization support: unaligned access used inside loop body
+            remark #15305: vectorization support: vector length 8
+            remark #15309: vectorization support: normalized vectorization overhead 1.000
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15450: unmasked unaligned unit stride loads: 1 
+            remark #15451: unmasked unaligned unit stride stores: 1 
+            remark #15475: --- begin vector cost summary ---
+            remark #15476: scalar cost: 5 
+            remark #15477: vector cost: 0.750 
+            remark #15478: estimated potential speedup: 5.000 
+            remark #15488: --- end vector cost summary ---
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_MPI.c(1020,4)
+         <Remainder loop for vectorization>
+         LOOP END
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at suktmig2d_MPI.c(1026,3)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at suktmig2d_MPI.c(1038,4)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at suktmig2d_MPI.c(1070,6)
+            remark #15542: loop was not vectorized: inner loop was already vectorized
+
+            LOOP BEGIN at suktmig2d_MPI.c(1070,6)
+               remark #15389: vectorization support: reference datalo[k-?] has unaligned access   [ suktmig2d_MPI.c(1071,7) ]
+               remark #15389: vectorization support: reference *(*(lowpass+nc*8)+(k+?-1)*4) has unaligned access   [ suktmig2d_MPI.c(1071,21) ]
+               remark #15381: vectorization support: unaligned access used inside loop body
+               remark #15305: vectorization support: vector length 8
+               remark #15309: vectorization support: normalized vectorization overhead 1.000
+               remark #15300: LOOP WAS VECTORIZED
+               remark #15450: unmasked unaligned unit stride loads: 1 
+               remark #15451: unmasked unaligned unit stride stores: 1 
+               remark #15475: --- begin vector cost summary ---
+               remark #15476: scalar cost: 4 
+               remark #15477: vector cost: 0.750 
+               remark #15478: estimated potential speedup: 4.000 
+               remark #15488: --- end vector cost summary ---
+            LOOP END
+
+            LOOP BEGIN at suktmig2d_MPI.c(1070,6)
+            <Remainder loop for vectorization>
+            LOOP END
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_MPI.c(1076,6)
+            remark #15389: vectorization support: reference datalo[k-?] has unaligned access   [ suktmig2d_MPI.c(1077,7) ]
+            remark #15389: vectorization support: reference *(*(lowpass+(fplo+1)*8)+(k+?-1)*4) has unaligned access   [ suktmig2d_MPI.c(1077,21) ]
+            remark #15389: vectorization support: reference datahi[k-?] has unaligned access   [ suktmig2d_MPI.c(1078,7) ]
+            remark #15389: vectorization support: reference *(*(lowpass+(fplo+1)*8)+(k+?-1)*4) has unaligned access   [ suktmig2d_MPI.c(1078,21) ]
+            remark #15381: vectorization support: unaligned access used inside loop body
+            remark #15305: vectorization support: vector length 8
+            remark #15309: vectorization support: normalized vectorization overhead 1.000
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15450: unmasked unaligned unit stride loads: 2 
+            remark #15451: unmasked unaligned unit stride stores: 2 
+            remark #15475: --- begin vector cost summary ---
+            remark #15476: scalar cost: 8 
+            remark #15477: vector cost: 1.500 
+            remark #15478: estimated potential speedup: 2.660 
+            remark #15488: --- end vector cost summary ---
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_MPI.c(1076,6)
+         <Remainder loop for vectorization>
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_MPI.c(1088,4)
+         remark #15542: loop was not vectorized: inner loop was already vectorized
+
+         LOOP BEGIN at suktmig2d_MPI.c(1130,6)
+            remark #15542: loop was not vectorized: inner loop was already vectorized
+
+            LOOP BEGIN at suktmig2d_MPI.c(1130,6)
+               remark #15389: vectorization support: reference datalo[k-?] has unaligned access   [ suktmig2d_MPI.c(1131,7) ]
+               remark #15389: vectorization support: reference *(*(lowpass+nc*8)+(k+?-1)*4) has unaligned access   [ suktmig2d_MPI.c(1131,21) ]
+               remark #15381: vectorization support: unaligned access used inside loop body
+               remark #15305: vectorization support: vector length 8
+               remark #15309: vectorization support: normalized vectorization overhead 1.000
+               remark #15300: LOOP WAS VECTORIZED
+               remark #15450: unmasked unaligned unit stride loads: 1 
+               remark #15451: unmasked unaligned unit stride stores: 1 
+               remark #15475: --- begin vector cost summary ---
+               remark #15476: scalar cost: 4 
+               remark #15477: vector cost: 0.750 
+               remark #15478: estimated potential speedup: 4.000 
+               remark #15488: --- end vector cost summary ---
+            LOOP END
+
+            LOOP BEGIN at suktmig2d_MPI.c(1130,6)
+            <Remainder loop for vectorization>
+            LOOP END
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_MPI.c(1136,6)
+            remark #15389: vectorization support: reference datalo[k-?] has unaligned access   [ suktmig2d_MPI.c(1137,7) ]
+            remark #15389: vectorization support: reference *(*(lowpass+fplo*8)+(k+?-1)*4) has unaligned access   [ suktmig2d_MPI.c(1137,21) ]
+            remark #15389: vectorization support: reference datahi[k-?] has unaligned access   [ suktmig2d_MPI.c(1138,7) ]
+            remark #15389: vectorization support: reference *(*(lowpass+(fplo+1)*8)+(k+?-1)*4) has unaligned access   [ suktmig2d_MPI.c(1138,21) ]
+            remark #15381: vectorization support: unaligned access used inside loop body
+            remark #15305: vectorization support: vector length 8
+            remark #15309: vectorization support: normalized vectorization overhead 1.000
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15450: unmasked unaligned unit stride loads: 2 
+            remark #15451: unmasked unaligned unit stride stores: 2 
+            remark #15475: --- begin vector cost summary ---
+            remark #15476: scalar cost: 8 
+            remark #15477: vector cost: 1.500 
+            remark #15478: estimated potential speedup: 2.660 
+            remark #15488: --- end vector cost summary ---
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_MPI.c(1136,6)
+         <Remainder loop for vectorization>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: lpfilt(int, int, float, float, float *)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at suktmig2d_MPI.c(1185,2)
+<Peeled loop for vectorization, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at suktmig2d_MPI.c(1185,2)
+<Distributed chunk1>
+   remark #15389: vectorization support: reference filter[i] has unaligned access   [ suktmig2d_MPI.c(1186,3) ]
+   remark #15381: vectorization support: unaligned access used inside loop body
+   remark #15305: vectorization support: vector length 4
+   remark #15399: vectorization support: unroll factor set to 2
+   remark #15309: vectorization support: normalized vectorization overhead 1.833
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+   remark #15442: entire loop may be executed in remainder
+   remark #15451: unmasked unaligned unit stride stores: 1 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 32 
+   remark #15477: vector cost: 0.750 
+   remark #15478: estimated potential speedup: 26.590 
+   remark #15488: --- end vector cost summary ---
+LOOP END
+
+LOOP BEGIN at suktmig2d_MPI.c(1185,2)
+<Remainder loop for vectorization, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at suktmig2d_MPI.c(1185,2)
+<Distributed chunk2>
+   remark #15389: vectorization support: reference filter[i] has unaligned access   [ suktmig2d_MPI.c(1191,4) ]
+   remark #15389: vectorization support: reference filter[i] has unaligned access   [ suktmig2d_MPI.c(1191,4) ]
+   remark #15381: vectorization support: unaligned access used inside loop body
+   remark #15305: vectorization support: vector length 4
+   remark #15309: vectorization support: normalized vectorization overhead 0.049
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+   remark #15450: unmasked unaligned unit stride loads: 1 
+   remark #15451: unmasked unaligned unit stride stores: 1 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 401 
+   remark #15477: vector cost: 86.750 
+   remark #15478: estimated potential speedup: 4.610 
+   remark #15482: vectorized math library calls: 1 
+   remark #15487: type converts: 4 
+   remark #15488: --- end vector cost summary ---
+
+   LOOP BEGIN at suktmig2d_MPI.c(1189,3)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      remark #15346: vector dependence: assumed FLOW dependence between filter[i] (1191:4) and filter[i] (1191:4)
+      remark #15346: vector dependence: assumed ANTI dependence between filter[i] (1191:4) and filter[i] (1191:4)
+      remark #15548: loop was vectorized along with the outer loop
+   LOOP END
+LOOP END
+
+LOOP BEGIN at suktmig2d_MPI.c(1185,2)
+<Remainder loop for vectorization, Distributed chunk2>
+
+   LOOP BEGIN at suktmig2d_MPI.c(1189,3)
+      remark #25460: No loop optimizations reported
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: gravar_dados(float **, int, int, int, char *)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at suktmig2d_MPI.c(1202,2)
+   remark #15382: vectorization support: call to function fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ suktmig2d_MPI.c(1204,3) ]
+   remark #15382: vectorization support: call to function fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ suktmig2d_MPI.c(1206,4) ]
+   remark #15382: vectorization support: call to function fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ suktmig2d_MPI.c(1208,3) ]
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+   remark #15346: vector dependence: assumed OUTPUT dependence between call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (1204:3) and call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (1208:3)
+   remark #15346: vector dependence: assumed OUTPUT dependence between call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (1208:3) and call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (1204:3)
+
+   LOOP BEGIN at suktmig2d_MPI.c(1205,3)
+      remark #15382: vectorization support: call to function fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ suktmig2d_MPI.c(1206,4) ]
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      remark #15346: vector dependence: assumed FLOW dependence between call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (1206:4) and mig[ix] (1206:4)
+      remark #15346: vector dependence: assumed ANTI dependence between mig[ix] (1206:4) and call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (1206:4)
+   LOOP END
+LOOP END
+===========================================================================

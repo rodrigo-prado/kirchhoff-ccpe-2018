@@ -1,0 +1,36 @@
+# Makefile for ...suktmig2d_MPI
+
+include $(CWPROOT)/src/Makefile.config
+
+D = $L/libcwp.a $L/libpar.a $L/libsu.a
+
+B=.
+
+OPTC = -g
+
+LFLAGS= -O3 $(PRELFLAGS) -I/home/rodrigo/opt/intel/compilers_and_libraries_2016.1.150/linux/mpi/intel64/include \
+-I/home/rodrigo/opt/intel/compilers_and_libraries_2016.1.150/linux/mpi/intel64/include -lpthread \
+-L/home/rodrigo/opt/intel/compilers_and_libraries_2016.1.150/linux/mpi/intel64/lib/debug_mt \
+-L/home/rodrigo/opt/intel/compilers_and_libraries_2016.1.150/linux/mpi/intel64/lib -lmpifort -lmpi -lmpigi -ldl \
+-lhwloc -L$L -lsu -lpar -lcwp -lm -lrt -fno-tree-vectorize -fno-tree-slp-vectorize -mavx2 $(POSTLFLAGS)
+
+CC = gcc
+
+PROGS =			\
+	$B/suktmig2d_MPI
+
+INSTALL_GccIntelMPIBase	:	$(PROGS)
+	@-rm -f INSTALL*
+	@touch $@
+
+$(PROGS):	$(CTARGET) $D
+	-$(CC) $(CFLAGS) $(@F).c $(LFLAGS) -o $@
+	@$(MCHMODLINE)
+	@echo $(@F) installed in $B
+
+remake	:
+	-rm -f $(PROGS) INSTALL_GccIntelMPIBase
+	$(MAKE) -f makefileGccIntelMPIBase
+
+clean::
+	rm -f a.out junk* JUNK* core *.o

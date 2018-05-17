@@ -1,0 +1,34 @@
+# Makefile for ...suktmig2d_original
+
+include $(CWPROOT)/src/Makefile.config
+
+D = $L/libcwp.a $L/libpar.a $L/libsu.a
+
+B=.
+
+OPTC = -g
+
+LFLAGS= -O3 $(PRELFLAGS) -L$L -lsu -lpar -lcwp -lm -xcore-avx2 -qopt-report-phase=vec -qopt-report=5 \
+-no-vec -prec-div -no-fma $(POSTLFLAGS)
+
+CC = icc
+
+PROGS =			\
+	$B/suktmig2d_Sequential
+
+INSTALL_Sequential_Scalar	:	$(PROGS)
+	@-rm -f INSTALL_Sequential_Scalar*
+	@touch $@
+
+$(PROGS):	$(CTARGET) $D
+	-$(CC) $(CFLAGS) $(@F).c $(LFLAGS) -o $@
+	@$(MCHMODLINE)
+	-mv $@ $@_Scalar
+	@echo $(@F) installed in $B
+
+remake	:
+	-rm -f $(PROGS) INSTALL_Sequential_Scalar
+	$(MAKE) -f makefile_ICC_Sequential_Scalar
+
+clean::
+	rm -f a.out junk* JUNK* core *.o

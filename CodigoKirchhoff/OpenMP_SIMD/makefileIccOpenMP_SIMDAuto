@@ -1,0 +1,33 @@
+# Makefile for ...suktmig2d_OpenMP
+
+include $(CWPROOT)/src/Makefile.config
+
+D = $L/libcwp.a $L/libpar.a $L/libsu.a
+
+B=.
+
+OPTC = -g
+
+LFLAGS= -O3 $(PRELFLAGS) -L$L -lsu -lpar -lcwp -lm -qopenmp -xcore-avx2 \
+-prec-div -no-fma -qopt-report-phase=vec,openmp -qopt-report=5 $(POSTLFLAGS)
+
+CC = icc
+
+PROGS =			\
+	$B/suktmig2d_OpenMP_SIMD
+
+INSTALL_IccOpenMP_SIMDAuto	:	$(PROGS)
+	@-rm -f INSTALL*
+	@touch $@
+
+$(PROGS):	$(CTARGET) $D
+	-$(CC) $(CFLAGS) $(@F).c $(LFLAGS) -o $@
+	@$(MCHMODLINE)
+	@echo $(@F) installed in $B
+
+remake	:
+	-rm -f $(PROGS) INSTALL_IccOpenMP_SIMDAuto
+	$(MAKE) -f makefileIccOpenMP_SIMDAuto
+
+clean::
+	rm -f a.out junk* JUNK* core *.o

@@ -1,0 +1,34 @@
+# Makefile for ...suktmig2d_OpenMP
+
+include $(CWPROOT)/src/Makefile.config
+
+D = $L/libcwp.a $L/libpar.a $L/libsu.a
+
+B=.
+
+OPTC = -g
+
+LFLAGS= -O3 $(PRELFLAGS) -L$L -lsu -lpar -lcwp -lm -qopenmp -xcore-avx2 \
+-no-vec -prec-div -no-fma -qopt-report-phase=openmp,vec -qopt-report=5 $(POSTLFLAGS)
+
+CC = icc
+
+PROGS =			\
+	$B/suktmig2d_OpenMP
+
+INSTALL_ICC_OpenMP_Scalar	:	$(PROGS)
+	@-rm -f INSTALL_ICC_OpenMP_Scalar
+	@touch $@
+
+$(PROGS):	$(CTARGET) $D
+	-$(CC) $(CFLAGS) $(@F).c $(LFLAGS) -o $@
+	@$(MCHMODLINE)
+	-mv $@ $@_Scalar
+	@echo $(@F) installed in $B
+
+remake	:
+	-rm -f $(PROGS) INSTALL_ICC_OpenMP_Scalar
+	$(MAKE) -f makefile_ICC_OpenMP_Scalar
+
+clean::
+	rm -f a.out junk* JUNK* core *.o

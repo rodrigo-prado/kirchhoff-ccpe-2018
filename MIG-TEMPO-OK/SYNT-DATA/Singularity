@@ -1,0 +1,36 @@
+Bootstrap: docker
+From: ubuntu:trusty
+
+%post
+	apt-get update
+	apt-get install -y python-pip
+	apt-get install -y curl 
+	apt-get install -y apt-transport-https 
+	apt-get install -y time 
+	apt-get install -y openmpi-bin 
+	apt-get install -y openmpi-common 
+	apt-get install -y libopenmpi-dev 
+	apt-get install -y openssh-client 
+	apt-get install -y openssh-server 
+	apt-get install -y python-dev 
+	apt-get install -y vim 
+	pip install numpy
+	curl -o /root/GPG-PUB-KEY-INTEL-PSXE-RUNTIME-2018 -SL "https://apt.repos.intel.com/2018/GPG-PUB-KEY-INTEL-PSXE-RUNTIME-2018"
+	apt-key add /root/GPG-PUB-KEY-INTEL-PSXE-RUNTIME-2018
+	/bin/bash -c 'echo deb https://apt.repos.intel.com/2018 intel-psxe-runtime main > /etc/apt/sources.list.d/intel-psxe-runtime-2018.list' 
+	/bin/bash -c 'echo deb [arch=all] https://apt.repos.intel.com/2018 intel-psxe-runtime main >> /etc/apt/sources.list.d/intel-psxe-runtime-2018.list'
+	apt-get update
+	apt-get install -y intel-psxe-runtime
+
+
+	apt -y update
+	apt -y install htop
+	#dpkg -i cuda-repo-ubuntu1604_9.0.176-1_amd64.deb
+	#apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub
+	#apt -y update
+	#apt -y install cuda
+
+#%runscript
+	#htop
+
+	

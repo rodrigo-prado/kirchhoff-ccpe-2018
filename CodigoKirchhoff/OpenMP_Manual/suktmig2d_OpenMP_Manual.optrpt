@@ -1,0 +1,342 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+
+Begin optimization report for: main(int, char **)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at suktmig2d_OpenMP_Manual.c(217,2)
+   remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+LOOP END
+
+LOOP BEGIN at suktmig2d_OpenMP_Manual.c(217,2)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at suktmig2d_OpenMP_Manual.c(235,3)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at suktmig2d_OpenMP_Manual.c(331,3)
+   remark #15382: vectorization support: call to function efread(void *, size_t, size_t, FILE *) cannot be vectorized   [ suktmig2d_OpenMP_Manual.c(332,4) ]
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+LOOP END
+
+LOOP BEGIN at suktmig2d_OpenMP_Manual.c(346,3)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at suktmig2d_OpenMP_Manual.c(348,4)
+   <Multiversioned v1>
+      remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+   LOOP END
+
+   LOOP BEGIN at suktmig2d_OpenMP_Manual.c(348,4)
+   <Remainder, Multiversioned v1>
+   LOOP END
+
+   LOOP BEGIN at suktmig2d_OpenMP_Manual.c(348,4)
+   <Multiversioned v2>
+      remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+   LOOP END
+
+   LOOP BEGIN at suktmig2d_OpenMP_Manual.c(348,4)
+   <Remainder, Multiversioned v2>
+   LOOP END
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at suktmig2d_OpenMP_Manual.c(230,2)
+   remark #15533: loop was not vectorized: loop exceeds complexity limits. Consider overriding limits (-override-limits) or using simd directive.
+LOOP END
+===========================================================================
+
+Begin optimization report for: migkt2d(float **, int, int, float, float, float, int, float, float, float *, int, int, int, int, float, float **, float **, int, int)
+
+    Report from: OpenMP optimizations [openmp]
+
+suktmig2d_OpenMP_Manual.c(441:1-441:1):OMP:migkt2d:  OpenMP DEFINED REGION WAS PARALLELIZED
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at suktmig2d_OpenMP_Manual.c(513,2)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at suktmig2d_OpenMP_Manual.c(528,3)
+      remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+   LOOP END
+
+   LOOP BEGIN at suktmig2d_OpenMP_Manual.c(528,3)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at suktmig2d_OpenMP_Manual.c(535,3)
+      remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+   LOOP END
+
+   LOOP BEGIN at suktmig2d_OpenMP_Manual.c(535,3)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at suktmig2d_OpenMP_Manual.c(545,3)
+      remark #15523: loop was not vectorized: loop control variable ifc was found, but loop iteration count cannot be computed before executing the loop
+
+      LOOP BEGIN at suktmig2d_OpenMP_Manual.c(552,4)
+         remark #15523: loop was not vectorized: loop control variable it was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_OpenMP_Manual.c(558,4)
+         remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_OpenMP_Manual.c(558,4)
+      <Remainder>
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_OpenMP_Manual.c(565,4)
+         remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_OpenMP_Manual.c(565,4)
+      <Remainder>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at suktmig2d_OpenMP_Manual.c(577,3)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at suktmig2d_OpenMP_Manual.c(604,4)
+         remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_OpenMP_Manual.c(711,4)
+      <Peeled, Distributed chunk1>
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization
+         remark #15346: vector dependence: assumed FLOW dependence between .2 line 0 and .2 line 723
+         remark #15346: vector dependence: assumed ANTI dependence between .2 line 723 and .2 line 0
+
+         LOOP BEGIN at suktmig2d_OpenMP_Manual.c(711,4)
+         <Peeled, Distributed chunk1>
+            remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_OpenMP_Manual.c(711,4)
+         <Peeled, Distributed chunk2>
+            remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_OpenMP_Manual.c(711,4)
+         <Peeled, Distributed chunk3>
+            remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_OpenMP_Manual.c(711,4)
+         <Peeled, Distributed chunk4>
+            remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_OpenMP_Manual.c(736,4)
+         remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_OpenMP_Manual.c(743,4)
+         remark #15382: vectorization support: call to function cos_ps(v8sf) cannot be vectorized   [ suktmig2d_OpenMP_Manual.c(756,25) ]
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_OpenMP_Manual.c(766,4)
+         remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_OpenMP_Manual.c(776,4)
+         remark #15520: loop was not vectorized: loop with multiple exits cannot be vectorized unless it meets search loop idiom criteria
+
+         LOOP BEGIN at suktmig2d_OpenMP_Manual.c(828,7)
+            remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_OpenMP_Manual.c(828,7)
+         <Remainder>
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_OpenMP_Manual.c(854,7)
+            remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_OpenMP_Manual.c(854,7)
+         <Remainder>
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_OpenMP_Manual.c(870,4)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization
+         remark #15346: vector dependence: assumed OUTPUT dependence between fplo_vec line 943 and fplo_vec line 950
+         remark #15346: vector dependence: assumed OUTPUT dependence between fplo_vec line 950 and fplo_vec line 943
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_OpenMP_Manual.c(973,4)
+      <Peeled, Distributed chunk1>
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization
+         remark #15346: vector dependence: assumed FLOW dependence between .2 line 0 and .2 line 979
+         remark #15346: vector dependence: assumed ANTI dependence between .2 line 979 and .2 line 0
+
+         LOOP BEGIN at suktmig2d_OpenMP_Manual.c(973,4)
+         <Peeled, Distributed chunk1>
+            remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_OpenMP_Manual.c(973,4)
+         <Peeled, Distributed chunk2>
+            remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_OpenMP_Manual.c(973,4)
+         <Peeled, Distributed chunk3>
+            remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+         LOOP END
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_OpenMP_Manual.c(998,4)
+         remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_OpenMP_Manual.c(1013,4)
+         remark #15382: vectorization support: call to function cos_ps(v8sf) cannot be vectorized   [ suktmig2d_OpenMP_Manual.c(1025,24) ]
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_OpenMP_Manual.c(1035,4)
+         remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+      LOOP END
+
+      LOOP BEGIN at suktmig2d_OpenMP_Manual.c(1046,4)
+         remark #15520: loop was not vectorized: loop with multiple exits cannot be vectorized unless it meets search loop idiom criteria
+
+         LOOP BEGIN at suktmig2d_OpenMP_Manual.c(1098,7)
+            remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_OpenMP_Manual.c(1098,7)
+         <Remainder>
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_OpenMP_Manual.c(1125,7)
+            remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+         LOOP END
+
+         LOOP BEGIN at suktmig2d_OpenMP_Manual.c(1125,7)
+         <Remainder>
+         LOOP END
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: lpfilt_vec(int, int, float, float, float *)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at suktmig2d_OpenMP_Manual.c(1234,2)
+   remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+LOOP END
+
+LOOP BEGIN at suktmig2d_OpenMP_Manual.c(1234,2)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at suktmig2d_OpenMP_Manual.c(1236,2)
+   remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+LOOP END
+
+LOOP BEGIN at suktmig2d_OpenMP_Manual.c(1236,2)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at suktmig2d_OpenMP_Manual.c(1258,2)
+   remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+LOOP END
+
+LOOP BEGIN at suktmig2d_OpenMP_Manual.c(1268,2)
+   remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+LOOP END
+
+LOOP BEGIN at suktmig2d_OpenMP_Manual.c(1276,2)
+   remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+LOOP END
+
+LOOP BEGIN at suktmig2d_OpenMP_Manual.c(1276,2)
+<Remainder>
+LOOP END
+
+LOOP BEGIN at suktmig2d_OpenMP_Manual.c(1282,2)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at suktmig2d_OpenMP_Manual.c(1286,3)
+      remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+   LOOP END
+
+   LOOP BEGIN at suktmig2d_OpenMP_Manual.c(1293,3)
+      remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+   LOOP END
+
+   LOOP BEGIN at suktmig2d_OpenMP_Manual.c(1296,3)
+      remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: lpfilt(int, int, float, float, float *)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at suktmig2d_OpenMP_Manual.c(1178,2)
+<Distributed chunk1>
+   remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+LOOP END
+
+LOOP BEGIN at suktmig2d_OpenMP_Manual.c(1178,2)
+<Remainder, Distributed chunk1>
+LOOP END
+
+LOOP BEGIN at suktmig2d_OpenMP_Manual.c(1178,2)
+<Distributed chunk2>
+   remark #15540: loop was not vectorized: auto-vectorization is disabled with -no-vec flag
+
+   LOOP BEGIN at suktmig2d_OpenMP_Manual.c(1183,3)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      remark #15346: vector dependence: assumed FLOW dependence between filter line 1186 and filter line 1186
+      remark #15346: vector dependence: assumed ANTI dependence between filter line 1186 and filter line 1186
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: gravar_dados(float **, int, int, int, char *)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at suktmig2d_OpenMP_Manual.c(1313,2)
+   remark #15382: vectorization support: call to function fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ suktmig2d_OpenMP_Manual.c(1315,3) ]
+   remark #15382: vectorization support: call to function fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ suktmig2d_OpenMP_Manual.c(1317,4) ]
+   remark #15382: vectorization support: call to function fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ suktmig2d_OpenMP_Manual.c(1319,3) ]
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+   remark #15346: vector dependence: assumed OUTPUT dependence between call:fprintf(FILE *__restrict__, line 1315 and call:fprintf(FILE *__restrict__, line 1319
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 1319 and  line 1315
+
+   LOOP BEGIN at suktmig2d_OpenMP_Manual.c(1316,3)
+      remark #15382: vectorization support: call to function fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ suktmig2d_OpenMP_Manual.c(1317,4) ]
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      remark #15346: vector dependence: assumed FLOW dependence between call:fprintf(FILE *__restrict__, line 1317 and mig line 1317
+      remark #15346: vector dependence: assumed ANTI dependence between mig line 1317 and call:fprintf(FILE *__restrict__, line 1317
+   LOOP END
+LOOP END
+===========================================================================
